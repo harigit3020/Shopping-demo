@@ -22,25 +22,29 @@
                     :key="card.title"
                     :cols="card.flex"
                   >
-                    <v-card>
-                      <v-img
-                        :src="card.src"
-                        class="white--text align-end"
-                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                        height="200px"
-                      >
-                      </v-img>
-                      <div v-text="card.subtitle" class="names"></div>
-                      <div v-text="card.price" class="price"></div>
-                      <v-rating
-                        :value="4.5"
-                        color="amber"
-                        dense
-                        half-increments
-                        readonly
-                        size="14"
-                      ></v-rating>
-                    </v-card>
+                    <v-hover>
+                      <template v-slot:default="{ hover }">
+                        <v-card :elevation="hover ? 24 : 6">
+                          <v-img
+                            :src="card.src"
+                            class="white--text align-end"
+                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                            height="200px"
+                          >
+                          </v-img>
+                          <div v-text="card.subtitle" class="names mx-2"></div>
+                          <div v-text="card.price" class="price mx-2"></div>
+                          <v-rating
+                            :value="4.5"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                          ></v-rating>
+                        </v-card>
+                      </template>
+                    </v-hover>
                   </v-col>
                 </v-row>
               </v-container>
@@ -62,97 +66,96 @@ export default {
     return {
       cards: [
         {
-          subtitle: "Pre-fab homes",
+          subtitle: "T-shirt Gray",
           price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
+          src: require("../assets/images/grey-t-shirt.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Favorite road trips",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/road.jpg",
+          subtitle: "Black Sneaker",
+          price: "$20.40",
+          src: require("../assets/images/black-sneakers-with-white-sole.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
+          subtitle: "Headphone Black",
           price: "$60.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          src: require("../assets/images/wireless-headphones.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: " Backpack Black",
+          price: "$40.40",
+          src: require("../assets/images/backpack-in-black.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
+          subtitle: "T-shirt Gray",
           price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          src: require("../assets/images/grey-t-shirt.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Black Sneaker",
+          price: "$20.40",
+          src: require("../assets/images/black-sneakers-with-white-sole.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Headphone Black",
+          price: "$60.40",
+          src: require("../assets/images/wireless-headphones.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: " Backpack Black",
+          price: "$40.40",
+          src: require("../assets/images/backpack-in-black.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Black Sneaker",
+          price: "$20.40",
+          src: require("../assets/images/black-sneakers-with-white-sole.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Headphone Black",
+          price: "$60.40",
+          src: require("../assets/images/wireless-headphones.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
+          subtitle: "T-shirt Gray",
           price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          src: require("../assets/images/grey-t-shirt.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Black Sneaker",
+          price: "$20.40",
+          src: require("../assets/images/black-sneakers-with-white-sole.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: "Headphone Black",
+          price: "$60.40",
+          src: require("../assets/images/wireless-headphones.jpg"),
           flex: 2,
         },
         {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
-          flex: 2,
-        },
-        {
-          subtitle: "Best airlines",
-          price: "$80.40",
-          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          subtitle: " Backpack Black",
+          price: "$40.40",
+          src: require("../assets/images/backpack-in-black.jpg"),
           flex: 2,
         },
       ],
     };
+  },
+  methods: {
+    hello(title) {
+      alert(title);
+    },
   },
 };
 </script>
@@ -168,7 +171,7 @@ export default {
 .price {
   text-align: start;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   color: gray;
 }
 .iconn {
