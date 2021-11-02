@@ -1,10 +1,12 @@
 <template>
   <v-app>
+    <Launch class="body" />
+    <Discover />
     <v-layout row wrap>
       <v-container>
         <v-card>
           <v-card-title id="title">
-            <v-icon small class="iconn" left>mdi-solid</v-icon> New
+            <v-icon small color="red" left>mdi-solid</v-icon> New
             Arrivals</v-card-title
           >
           <v-tabs color="red accent-3" left>
@@ -55,13 +57,16 @@
     </v-layout>
   </v-app>
 </template>
-
 <script>
 // @ is an alias to /src
-
+import Launch from "../components/launch.vue";
+import Discover from "../components/discover.vue";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    Launch,
+    Discover,
+  },
   data: () => {
     return {
       cards: [
@@ -160,6 +165,10 @@ export default {
 };
 </script>
 <style scoped>
+.body {
+  background-image: linear-gradient(to top, black 0%, gray 100%);
+  font-family: "Roboto", sans-serif;
+}
 #title {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
